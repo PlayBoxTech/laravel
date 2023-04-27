@@ -1,12 +1,23 @@
-<! doctype html>
+<x-layout>
+    <x-slot name="content">
+        @foreach ($posts as $post )
+            <article>
+                <h1>
+                    <a href="/posts/{{ $post->id }}">
+                        {{ $post->title }}
+                    </a>
+                </h1>
+                <div>
+                     {{ $post->exceprt }}
+                </div>
+            </article>
+            <hr/>
+        @endforeach
+    </x-slot>
 
-<title>My Blog</title>
-<link rel="stylesheet" href="/app.css">
-<body>
-    <?php foreach ($posts as $post) : ?>
-        <article>
-            <?php $post; ?>
-        </article>
-    <?php endforeach; ?>
-    
-</body>
+    <x-slot name="title">
+        Main Page
+    </x-slot>
+</x-layout>
+
+

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '67dc263eec35b8fedc9ebce245906e553dc28261',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -383,9 +383,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '67dc263eec35b8fedc9ebce245906e553dc28261',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -968,6 +968,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'spatie/yaml-front-matter' => array(
+            'pretty_version' => '2.0.7',
+            'version' => '2.0.7.0',
+            'reference' => 'f49f228994de70827ca857efffdd3bd7703aea34',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/yaml-front-matter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/console' => array(
             'pretty_version' => 'v6.0.19',
             'version' => '6.0.19.0',
@@ -1239,7 +1248,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',

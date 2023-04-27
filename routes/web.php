@@ -3,6 +3,8 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
+use function PHPUnit\Framework\isNull;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +17,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    
+
+    $posts = Post::all();
+    //dd ($posts);
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => $posts
     ]);
 });
 
-Route::get('post/{post}', function($slug) {
-    
-       
-    return view('post', [
-        'post' => Post::find ($slug)
-    ]);
-     
-    })->where('post','[A-z_\-]+');
 
+Route::get('posts/{post}', function ($id) {
+
+    //dd ($id);
+    
+    $post = Post::findOrFail($id);
+    // ddd ($post);
+    return view ('post',['post',$post]);
+     /*return view('post', [
+        Post::findOrFail($id)
+    ]);*/
+});

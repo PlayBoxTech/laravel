@@ -82,6 +82,7 @@ class ComposerStaticInitb16386f975ce31290de3528f90cc0d1b
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\YamlFrontMatter\\' => 23,
             'Spatie\\LaravelIgnition\\' => 23,
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
@@ -308,6 +309,10 @@ class ComposerStaticInitb16386f975ce31290de3528f90cc0d1b
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Spatie\\YamlFrontMatter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/yaml-front-matter/src',
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
@@ -4784,6 +4789,10 @@ class ComposerStaticInitb16386f975ce31290de3528f90cc0d1b
         'Spatie\\LaravelIgnition\\Support\\StringComparator' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/StringComparator.php',
         'Spatie\\LaravelIgnition\\Views\\BladeSourceMapCompiler' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/BladeSourceMapCompiler.php',
         'Spatie\\LaravelIgnition\\Views\\ViewExceptionMapper' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/ViewExceptionMapper.php',
+        'Spatie\\YamlFrontMatter\\Arr' => __DIR__ . '/..' . '/spatie/yaml-front-matter/src/Arr.php',
+        'Spatie\\YamlFrontMatter\\ComplexMarkdownParser' => __DIR__ . '/..' . '/spatie/yaml-front-matter/src/ComplexMarkdownParser.php',
+        'Spatie\\YamlFrontMatter\\Document' => __DIR__ . '/..' . '/spatie/yaml-front-matter/src/Document.php',
+        'Spatie\\YamlFrontMatter\\YamlFrontMatter' => __DIR__ . '/..' . '/spatie/yaml-front-matter/src/YamlFrontMatter.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',
