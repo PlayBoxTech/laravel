@@ -13,6 +13,6 @@
     </x-slot>
 
     <x-slot name="title">
-        {{ $post->title }}
+        {!! $post->title !!}
     </x-slot>
 </x-layout>
