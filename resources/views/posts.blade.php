@@ -1,28 +1,15 @@
 <x-layout>
-    <x-slot name="content">
-        @foreach ($posts as $post )
-            <article>
-                <h1>
-                    <a href="/posts/{{ $post->slug }}">
-                        {!! $post->title !!}
-                    </a>
-                </h1>
 
-                <p>
-                    <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
-                </p>
+    @include ('_posts-header')
 
-                <div>
-                     {{ $post->excerpt }}
-                </div>
-            </article>
-            <hr/>
-        @endforeach
-    </x-slot>
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        @if ($posts->count())
+            <x-posts-grid :posts="$posts" />
 
-    <x-slot name="title">
-        Main Page
-    </x-slot>
+            
+        @else
+            <p class="text-center">No Posts yet. Please check back later.</p>
+        @endif
+
+    </main>
 </x-layout>
-
-
