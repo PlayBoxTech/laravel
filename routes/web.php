@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
@@ -19,25 +20,10 @@ use function PHPUnit\Framework\isNull;
 |
 */
 
-Route::get('/', function () {
-
-    $posts = Post::latest()->with('category', 'author')->get();
-    //dd ($posts);
-    return view('posts', [
-        'posts' => $posts,
-        'categories' => Category::all()
-    ]);
-})->name('home');
+Route::get('/', [PostController::class, 'index'])->name('home');
 
 
-Route::get('posts/{post:slug}', function (Post $post) { 
-
-    //dd ($id);
-    
-   return view('post', [
-    'post' => $post    
-   ]);
-});
+Route::get('posts/{post:slug}', [PostController::class,'show']);
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', [
