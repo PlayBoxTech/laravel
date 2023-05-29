@@ -15,22 +15,19 @@ class Post extends Model
     {
         // hasOne category
         return $this->belongsTo(Category::class);
-        
+
     }
 
     public function author()
     {
-        return $this->belongsTo(User::class, 'user_id'); 
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function scopeFilter($query, array $filters)   // Post::new
-    {
-        $query->when($filters['search'] ?? false, function($query, $search) {
-            $query
+    public function scopeFilter($query, array $filters) // Post::new {
+    $query->when($filters['search'] ?? false, fn($query, $search) =>
+        $query
             ->where('title', 'like', '%' . $search . '%')
-            ->orWhere('body', 'like', '%' . $search . '%');
-        });
-        
-    }
-}
+            ->orWhere('body', 'like', '%' . $search . '%'));
 
+}
+}
