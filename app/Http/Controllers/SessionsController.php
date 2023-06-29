@@ -17,14 +17,14 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-            return redirect('/')->with('success', 'Welcome Back!');
-        }
-
-        return back()
+        if (! auth()->attempt($attributes)) {
+            return back()
             ->withInput()
             ->withErrors(['email' => 'Your provided creditials could not be verified']);
+        }
+        session()->regenerate();
+        return redirect('/')->with('success', 'Welcome Back!');
+        
     }
 
     public function destroy()
