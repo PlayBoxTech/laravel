@@ -54,7 +54,8 @@
                     </div>
                 </div>
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                   <x-panel>
+                  @auth
+                    <x-panel>
                     <form method="post" action="/posts/{{ $post->slug}}/comments">
                         @csrf
                         <header class="flex items-center">
@@ -70,6 +71,11 @@
                         </div>
                     </form>
                 </x-panel>
+                @else
+                    <p>
+                        <a href="/register">Register</a> or <a href="/login">Log in to leave a comment</a>
+                    </p>
+                @endauth
                   @foreach ( $post->comments as $comment )
                     <x-post-comment :comment="$comment" />
                   @endforeach
