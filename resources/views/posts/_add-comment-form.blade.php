@@ -16,7 +16,7 @@
 
 
                 <div class="flex justify-end mt-10">
-                    <x-submit-button>post</x-submit-button>
+                    <x-form.button>post</x-form.button>
                 </div>
             </div>
         </form>
