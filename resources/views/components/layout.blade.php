@@ -7,7 +7,7 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 
 <style>
-    html{
+    html {
         scroll-behavior: smooth;
     }
 </style>
@@ -23,26 +23,35 @@
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
-                    <span class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
-                    <form method="POST" action="/logout">
-                        @csrf
-                        <button type="submit" class="text-xs font-semibold text-blue-500 ml-6">Log Out</button>
-                    </form>
+                    <x-dropdown>
+                        <x-slot name="trigger">
+                            <button class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}</button>
+                        </x-slot>
+                        <x-dropdown-item href="/admin/dashboard">Dashboard</x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                        <x-dropdown-item href="#" x-data="{}"
+                            @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+                            <form id="logout-form" method="POST" action="/logout">
+                                @csrf
+                            </form>
+                    </x-dropdown>
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="text-xs font-bold uppercase ml-6">Login</a>
                 @endauth
 
-                <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                <a href="#newsletter"
+                    class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
                 </a>
             </div>
         </nav>
 
-      
+
         {{ $slot }}
 
-        <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
+        <footer id="newsletter"
+            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <img src="/images//lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
             <h5 class="text-3xl">Stay in touch with the latest posts</h5>
             <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
@@ -58,18 +67,14 @@
                                 <img src="/images//mailbox-icon.svg" alt="mailbox letter">
                             </label>
 
-                            <input id="email" 
-                                name="email"
-                                type="text" 
-                                placeholder="Your email address"
-                                   class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
+                            <input id="email" name="email" type="text" placeholder="Your email address"
+                                class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         </div>
                         @error('email')
                             <span class="text-xs text-red-500">{{ $message }}</span>
                         @enderror
                         <button type="submit"
-                                class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
-                        >
+                            class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
                             Subscribe
                         </button>
                     </form>
@@ -79,9 +84,7 @@
     </section>
 
     @if (session()->has('success'))
-        <div x-data="{ show: true }"
-             x-init="setTimeout=(() => show = false, 4000)" 
-             x-show="show"
+        <div x-data="{ show: true }" x-init="setTimeout = (() => show = false, 4000)" x-show="show"
             class="fixed bottom-0 right-0 bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
             <p>{{ session('success') }}</p>
         </div>
