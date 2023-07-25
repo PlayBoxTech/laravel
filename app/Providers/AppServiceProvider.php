@@ -8,6 +8,8 @@ use App\Services\MailchimpNewsletter;
 //use App\Services\ConvertkitNewsletter;
 use App\Services\Newsletter;
 use MailchimpMarketing\ApiClient;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -39,5 +41,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //Paginator::useBootstrap();
         Model::unguard();
+        Gate::define('admin', function (User $user) {
+            return $user->username === 'chris';
+        });
     }
 }
